@@ -1,0 +1,71 @@
+﻿@model ClientWeb.Models.GameModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/js/jquery.signalR-2.2.2.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/angular/angular.min.js"></script>
+    <script>
+        var gameId = "@Model.Id";
+        var player = "@Model.Player"
+    </script>
+    <script src="~/js/game.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="/css/App.css" type="text/css" rel="stylesheet" />
+    <link href="/css/Battlefield.css" type="text/css" rel="stylesheet" />
+    <link href="/css/Lobby.css" type="text/css" rel="stylesheet" />
+    <link href="/css/Game.css" type="text/css" rel="stylesheet" />
+</head>
+<body ng-app="ngGame" class="ng-scope">
+    <div class="container">
+        <div class="header">
+            <h3 class="title">Battleship </h3>
+        </div>
+        <div class="playgrounds row">
+            <div class="battlefield col-sm-4" ng-controller="PlayerController">
+                <table class="battlefield">
+                    <tr ng-repeat="(row, n) in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] ">
+                        <td id="cell_{{row}}_{{col}}" class="battlefield-cell battlefield-cell-{{cells[row][col]}}" ng-repeat="(col, m) in ['A','B','C','D','E','F','G','H','I','J']">
+                            <div class="content">
+                                <span class="marker marker__col" ng-if="row == 0">{{m}}</span>
+                                <span class="marker marker__row" ng-if="col == 0">{{n}}</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-2 vs">
+            </div>
+            <div class="battlefield col-sm-4" ng-controller="OpponentController">
+                <table class="battlefield">
+                    <tr ng-repeat="(row, n) in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] ">
+                        <td ng-click="onCellClick(this)" id="cell2_{{row}}_{{col}}" class="battlefield-cell battlefield-cell-{{cells[row][col]}}" ng-repeat="(col, m) in ['A','B','C','D','E','F','G','H','I','J']">
+                            <div class="content">
+                                <span class="marker marker__col" ng-if="row == 0">{{m}}</span>
+                                <span class="marker marker__row" ng-if="col == 0">{{n}}</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="bg_info">
+                    <div class="info">Waiting Opponent</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-controller="BackController" class="full" style="display:none;">
+        <div class="status">
+            <div class="txt"></div>
+            <button ng-click="home()">Home</button>
+
+        </div>
+    </div>
+</body>
+</html>

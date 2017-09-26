@@ -1,0 +1,25 @@
+﻿@using Entities.Models
+@model IEnumerable<PlayerModel>
+@{
+    ViewBag.Title = "Leaderboard";
+}
+
+
+<div ng-controller="LobbyController"></div>
+<p>
+    Top
+    @Html.ActionLink("10", "Leaderboard", new { topNr = 10 }) | @Html.ActionLink("50", "Leaderboard", new { topNr = 50 }) | @Html.ActionLink("100", "Leaderboard", new { topNr = 100 })
+</p>
+<table class="table table-striped table-sm" align="left">
+    <tr>
+        <th>Player name</th>
+        <th>Elo</th>
+    </tr>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.Name</td>
+            <td>@p.Elo</td>
+        </tr>
+    }
+</table>

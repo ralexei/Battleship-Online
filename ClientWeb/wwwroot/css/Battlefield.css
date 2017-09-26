@@ -1,0 +1,78 @@
+﻿div.battlefield {
+    min-height: 340px;
+    min-width: 340px;
+}
+
+table.battlefield {
+    margin: 0;
+    border-collapse: collapse;
+    cursor: default;
+    display: inline-block;
+    position: relative;
+}
+
+td.battlefield-cell {
+    padding: 0;
+    border: 1px solid #B4B4FF;
+}
+
+td.battlefield-cell div.content {
+    position: relative;
+    height: 2em;
+    width: 2em;
+    background: white;
+}
+
+div.ship {
+    z-index: 2;
+    left: 0;
+    top: 0;
+    border: 2px solid #00f;
+    background: rgba(0,0,255,.05);
+    position: absolute !important;
+    margin: -2px;
+}
+
+.vs {
+    width: 20px;
+    height: 10px;
+}
+
+.marker {
+    position: absolute;
+    font-size: 11px;
+    z-index: -1;
+}
+
+.marker__row {
+    left: -3em;
+    width: 2em;
+    text-align: right;
+    top: 1em;
+    height: 1em;
+}
+
+.marker__col {
+    top: -2em;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.ship {
+    z-index: 2;
+    left: 0;
+    top: 0;
+    border: 2px solid #00f;
+    background: rgba(0,0,255,.5);
+    position: absolute !important;
+    margin: -2px;
+}
+
+.movable {
+    cursor: move !important;
+}
+
+.none {
+    opacity: 0.4;
+}

@@ -1,0 +1,12 @@
+{
+  "name": "battleship-client-js",
+  "description": "Battle ships client-js",
+  "main": "",
+  "private": true,
+  "dependencies": {
+    "angular": "v1.6.7-build.5456+sha.3651e42",
+    "bootstrap": "^3.3.7",
+    "jquery-ui": "^1.12.1",
+    "jquery.cookie": "^1.4.1"
+  }
+}

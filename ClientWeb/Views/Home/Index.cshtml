@@ -1,0 +1,86 @@
+﻿﻿@{
+    ViewBag.Title = "Home";
+}
+
+<div class="playgrounds row">
+    <div class="battlefield col-sm-4" ng-controller="BattlefieldController">
+        <table class="battlefield" id="player">
+            <tr ng-repeat="(row, n) in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] ">
+                <td id="cell_{{col}}_{{row}}" class="battlefield-cell battlefield-cell-free" ng-repeat="(col, m) in ['A','B','C','D','E','F','G','H','I','J']">
+                    <div class="content">
+                        <span class="marker marker__col" ng-if="row == 0">{{m}}</span>
+                        <span class="marker marker__row" ng-if="col == 0">{{n}}</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <button class="btn btn-primary" ng-click="randomShips()">Random</button>
+    </div>
+    <div class="col-sm-2 vs">
+    </div>
+    <div class="battlefield col-sm-4">
+        <table class="battlefield none">
+            <tr ng-repeat="(row, n) in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] ">
+                <td class="battlefield-cell battlefield-cell-free" ng-repeat="(col, m) in ['A','B','C','D','E','F','G','H','I','J']">
+                    <div class="content">
+                        <span class="marker marker__col" ng-if="row == 0">{{m}}</span>
+                        <span class="marker marker__row" ng-if="col == 0">{{n}}</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div ng-controller="LobbyController">
+            <div style="display:none">
+                <form class="room" action="/Home/Game" method="post">
+                    <input id="roomId" name="id" value="0" />
+                    <input id="player" name="player" value="" />
+                </form>
+            </div>
+            <button class="btn btn-primary btn-lobby" data-toggle="modal" data-target="#myModal">Create Lobby</button>
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Lobby</h4>
+                        </div>
+                        <div class="modal-body">
+                            <span>Name:</span><input ng-model="name" id="input-box"/><br />
+                            <span>Pass:</span><input ng-model="pass" id="input-box" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" ng-click="createLobby()" class="btn btn-default" id="enter-btn" data-dismiss="modal">Ok</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lobbies">
+                <span>Lobbies</span>
+                <div class="list-group lobby">
+                    <a href="#" ng-click="play(this)" class="list-group-item" ng-repeat="(i, lobby) in lobbies" id="lobby_{{i}}">{{lobby.LobbyName}}({{lobby.CreatorElo}})</a>
+                </div>
+                <div id="passModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" id="lobbytitle"></h4>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" ng-model="lobby" id="lobby" />
+                                <span>Pass:</span><input ng-model="pass2" id="input-box" />
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" ng-click="passLobby()" class="btn btn-default" id="enter-btn" data-dismiss="modal">Ok</button>
+                                <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info" style="display:none">Waiting for Connection...</div>
+        </div>
+    </div>
+</div>

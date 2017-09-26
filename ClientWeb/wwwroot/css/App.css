@@ -1,0 +1,39 @@
+﻿body {
+    background: #eefcfc;
+}
+* {
+    touch-action: manipulation;
+}
+
+.header
+{
+  margin-top: 50px;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+.container
+{
+    max-width: 800px;
+}
+.playgrounds
+{
+  margin: 20px;
+}
+
+.bg_info {
+    width: 290px;
+    position: absolute;
+    top:0px;
+    left:15px;
+    background-color: rgba(0,0,255,0.3);
+    height: 290px;
+    display:none;
+}
+.modal-header, .modal-body, .modal-footer
+{
+    color: black !important;
+}
+
+.body-content {
+    margin-top: 60px;
+}

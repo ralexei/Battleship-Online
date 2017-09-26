@@ -1,0 +1,103 @@
+﻿
+/** NotSet,
+Alive,
+Hit,
+Dead,
+Missed,
+Hidden
+    **/
+
+.battlefield-cell-Hit div.content,
+.battlefield-cell-Dead div.content {
+    position: relative;
+}
+
+.battlefield-cell-Hit div.content::before,
+.battlefield-cell-Hit div.content::after,
+.battlefield-cell-Dead div.content::before,
+.battlefield-cell-Dead div.content::after
+{
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: red;
+    width: 100%;
+    height: 2px;
+}
+
+.battlefield-cell-Hit div.content::before,
+.battlefield-cell-Dead div.content::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.battlefield-cell-Hit div.content::after,
+.battlefield-cell-Dead div.content::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.battlefield-cell-Missed div.content {
+    position: relative;
+}
+
+.battlefield-cell-Missed div.content::before, .battlefield-cell-Missed div.content::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: #555;
+    width: 5px;
+    border-radius: 5px;
+    left: 46%;
+    height: 5px;
+}
+
+.battlefield-cell-Hidden div.content {
+    background: white !important;
+}
+
+.battlefield-cell-AutoMissed div.content {
+    position: relative;
+}
+
+.battlefield-cell-AutoMissed div.content::before, .battlefield-cell-AutoMissed div.content::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: #ccc;
+    width: 5px;
+    border-radius: 5px;
+    left: 46%;
+    height: 5px;
+}
+
+.full {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,100,0.2);
+    top: 0px;
+    left: 0px;
+}
+
+.full .status{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: white;
+}
