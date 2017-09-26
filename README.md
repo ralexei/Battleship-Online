@@ -44,6 +44,7 @@
 
 * - Use ELO rating system
 
+- - - -
 
 **Technical requirements** 
 
@@ -57,6 +58,7 @@ The application will be deployed to real server.
 
 * - using WebSockets protocol.
 
+- - - -
 
 **Tools & technologies**
 
