@@ -46,6 +46,7 @@
 
 
 **Technical requirements** 
+
 The game is web application;
 
 The application is real time*;
