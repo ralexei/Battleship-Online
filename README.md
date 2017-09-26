@@ -1,8 +1,7 @@
 # The Battleship online game
 
 
-**1).**
-Map requirements.
+**1). Map requirements.**
 
 -Ships: 1 x 1, 2 x 3, 3 x 2, 4 x 1;
 
@@ -15,8 +14,7 @@ Map requirements.
 -Ability to arrange ships manually;
 
 
-**2).**
-Lobby.
+**2). Lobby.**
 
 -List all players that started the game and is waiting for opponent;
 
@@ -27,8 +25,7 @@ Lobby.
 -Player must have ability to set password for game (play with friends);
 
 
-**3).**
-Game flow.
+**3).Game flow.**
 
 -On game page, will be 2 maps, on the left side is map of current player (with ships), on the right side is map of opponent player(initial empty)
 
@@ -41,8 +38,7 @@ Game flow.
 -On the end of game will be calculated rank for both players.
 
 
-**4).**
-Leader board.
+**4).Leader board.**
 
 -Display top (x) ranked players from the beginning.
 
@@ -60,7 +56,8 @@ The application will be deployed to real server.
 
 * - using WebSockets protocol.
 
-Tools & technologies
+
+**Tools & technologies**
 
 .NET Framework 4.6.2;
 
